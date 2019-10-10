@@ -42,13 +42,15 @@ public class CollectionUtils {
         return (false);
     }
 
-    /*public static<T> List range(List<? extends T> list, T min, T max) {
+    public static<T extends Comparable<T>> List range(List<? extends T> list, T min, T max) {
         List<? super T> result = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i). && list.get(i) min)
+        for (T t : list) {
+            if ((t.compareTo(min) > 0) && (t.compareTo(max) < 0)) {
+                result.add(t);
+            }
         }
-        return ();
-    }*/
+        return (result);
+    }
 
     public static<T> List range(List<? extends T> list, T min, T max, Comparator<? super T> comparator) {
         List<? super T> result = new ArrayList<>();
